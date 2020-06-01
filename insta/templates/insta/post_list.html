@@ -14,7 +14,9 @@
             <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
         </div>
         <div class="post_image">
-            <img src="/home/user/Downloads/New York Fashion Week.jpeg" alt="">
+            {{{% if post.image %}}}
+                <img src="{{ post.image.url}}" alt="">
+                {{% endif %}}
         </div>
         <div class="engagement">
             <a href=""><i class="far fa-heart"></i></a>
