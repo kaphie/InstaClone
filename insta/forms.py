@@ -5,14 +5,15 @@ from crispy_forms.layout import Submit, Layout, Field
 from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions
 )
-class PostForms(forms.ModelForm):
-    helper = Formhelper()
-    helper.form_method = 'POST'
-    helper.add_input(Submit('Post', 'Post', css_class='btn primary'))
+class PostForm(forms.ModelForm):
+    # helper = Formhelper()
+    # helper.form_method = 'POST'
+    # helper.add_input(Submit('Post', 'Post', css_class='btn primary'))
 
     class Meta:
         model = Post 
         fields = [
-            'image'
-            'caption'
+            'image',
+            'caption',
         ]
+

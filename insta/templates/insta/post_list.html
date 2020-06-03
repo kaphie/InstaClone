@@ -1,6 +1,6 @@
- 
+{% load static %}
 {% extends 'insta/base.html' %}
-{%block title%} Instagrampy {% endblock %}
+{%block title%} Instagram {% endblock %}
 
 {% block content %}
 {% for post in posts %}
@@ -11,14 +11,14 @@
                 
             </div>
             <div class="post_info">
-                <div class="post_name"><a href="{% url 'user_profile' post.author.username %}">{{ post.author }}</a></div>
-                <div class="post_location">Kuala Lumpure</div>
+                <div class="post_name">{{ post.author }}</a></div>
+                <div class="post_location">New York</div>
             </div>
         
-            <div class="post_options"> <button data-toggle="modal" data-target="#menu_modal" ><a ><i class="fas fa-ellipsis-h"></i></a></button></div>
+            <div class="post_options"> <button data-toggle="modal"><a ><i class="fas fa-ellipsis-h"></i></a></button></div>
         </div>
         
-        <div class="modal" id="menu_modal">
+        <!-- <div class="modal" id="menu_modal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <ul class='list-unstyled menu'>
@@ -29,7 +29,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <div class="post_image">
             {% if post.image %}
@@ -43,10 +43,10 @@
             <a href="" class="fa-bookmarks"><i class="far fa-bookmark"></i></a>
         </div>
         <div class="likes">
-          <a href="#">{{ post.likes.count }} likes</a>
+          <a href="#">{{ post.likes.count }} 1200 likes</a>
         </div>
         <div class="caption">
-            <span><p><a href="{% url 'user_profile' post.author.username %}">{{ post.author }}</a>{{ post.caption | linebreaksbr | truncatechars:60 }}</p></span>
+            <span><p>{{ post.author }}</a>{{ post.caption | linebreaksbr | truncatechars:60 }}</p></span>
         </div>
 
         <div class="time_posted">
@@ -54,6 +54,6 @@
         </div>
 
     </div>
-    {% include "insta/menu_modal.html" %}
+    
 {% endfor %}
 {% endblock %}

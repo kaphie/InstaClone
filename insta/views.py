@@ -1,7 +1,7 @@
 from django.shortcuts import get_list_or_404, render, redirect
 from django.utils import timezone
 from django.urls import reverse
-from.forms import PostForm
+from .forms import PostForm
 from .models import Post
 from django.views.generic import(
     ListView,
@@ -20,7 +20,7 @@ from .forms import PostForm
 
 class PostlistView(ListView):
     template_name = "insta/post_list.html"
-    queryset = Post.objects.all().filter(created_date_lte=timezone.now()).order_by('-created_date')
+    queryset = Post.objects.all().filter(created_date__lte=timezone.now()).order_by('-created_date')
     context_object_name = 'posts'
 
 class PostCreateView(CreateView):
@@ -36,7 +36,7 @@ class PostCreateView(CreateView):
 
 class PostDetailView(DetailView):
     template_name = 'insta/post_deatil.html'
-    queryset = Post.objects.all().filter(created_date_lte=timezone.now())
+    queryset = Post.objects.all().filter(created_date__lte=timezone.now())
 
     def get_object(self):
         id_ = self.kwargs.get('id')
@@ -84,4 +84,8 @@ class PostLikeToggle(RedirectView):
                 obj.likes.add(user) 
         return url_ 
 
+
+def user_profile(request):
+    posts = Post.objects.filter(user=True)
+    return render(request, 'insta/base.html')
 
