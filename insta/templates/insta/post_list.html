@@ -43,10 +43,10 @@
             <a href="" class="fa-bookmarks"><i class="far fa-bookmark"></i></a>
         </div>
         <div class="likes">
-          <a href="#">{{ post.likes.count }} 1200 likes</a>
+          <a href="#">1200 likes</a>
         </div>
         <div class="caption">
-            <span><p>{{ post.author }}</a>{{ post.caption | linebreaksbr | truncatechars:60 }}</p></span>
+            <span>{{ post.caption | linebreaksbr | truncatechars:60 }}</p></span>
         </div>
 
         <div class="time_posted">
